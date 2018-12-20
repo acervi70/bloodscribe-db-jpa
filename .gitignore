@@ -13,3 +13,7 @@ buildNumber.properties
 
 .DS_Store
 .DS_Store?
+
+src/main/java/META-INF/persistence\.xml
+
+src/main/resources/META-INF/persistence\.xml
