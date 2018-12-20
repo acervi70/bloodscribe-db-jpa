@@ -5,8 +5,8 @@ import javax.persistence.EntityManagerFactory;
 //import javax.persistence.FlushModeType;
 import javax.persistence.Persistence;
 
-import com.reigninbinary.core.util.CoreConfig;
-import com.reigninbinary.core.util.CoreLogging;
+import com.reigninbinary.core.CoreConfig;
+import com.reigninbinary.core.CoreLogging;
 
 public class BloodscribeEntityManager {
 	
