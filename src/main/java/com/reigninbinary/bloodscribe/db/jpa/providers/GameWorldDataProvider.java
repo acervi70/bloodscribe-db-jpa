@@ -8,10 +8,10 @@ import com.reigninbinary.bloodscribe.db.dto.GameWorldDescription;
 import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
 import com.reigninbinary.bloodscribe.db.jpa.entities.GameWorldDescriptionEntity;
 import com.reigninbinary.bloodscribe.db.jpa.entities.GameWorldEntity;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldDescriptionEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldDescriptionEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldEntityQueries;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldDescriptionMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldMapper;
+import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldDescriptionQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldQueries;
 import com.reigninbinary.bloodscribe.providers.GameWorldProvider;
 
 public class GameWorldDataProvider implements GameWorldProvider {
@@ -19,48 +19,48 @@ public class GameWorldDataProvider implements GameWorldProvider {
 	@Override
 	public GameWorld getGameWorldById(int idGameWorld) {
 		
-		return GameWorldEntityMapper
-				.mapModel(GameWorldEntityQueries.findByGameWorldId(idGameWorld));
+		return GameWorldMapper
+				.mapModel(GameWorldQueries.findByGameWorldId(idGameWorld));
 	}
 
 	@Override
 	public List<GameWorld> getGameWorldsByUser(int idUser) {
 		
-		return GameWorldEntityQueries
+		return GameWorldQueries
 				.findByUserId(idUser)
 				.stream()
-				.map(entity -> GameWorldEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public GameWorldDescription getGameWorldDescriptionById(int idDescription) {
 		
-		return GameWorldDescriptionEntityMapper
-				.mapModel(GameWorldDescriptionEntityQueries.findByDescriptionId(idDescription));
+		return GameWorldDescriptionMapper
+				.mapModel(GameWorldDescriptionQueries.findByDescriptionId(idDescription));
 	}
 
 	@Override
 	public List<GameWorldDescription> getGameWorldDescriptions(int idGameWorld) {
 		
-		return GameWorldDescriptionEntityQueries
+		return GameWorldDescriptionQueries
 				.findByGameWorldId(idGameWorld)
 				.stream()
-				.map(entity -> GameWorldDescriptionEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldDescriptionMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public void saveGameWorld(GameWorld gameWorld) {
 		
-		GameWorldEntity entity = GameWorldEntityMapper.mapModel(gameWorld);		
+		GameWorldEntity entity = GameWorldMapper.mapModel(gameWorld);		
 		BloodscribeEntityManager.getEntityManager().persist(entity);
 	}
 
 	@Override
 	public void saveGameWorldDescription(GameWorldDescription description) {
 
-		GameWorldDescriptionEntity entity = GameWorldDescriptionEntityMapper.mapModel(description);		
+		GameWorldDescriptionEntity entity = GameWorldDescriptionMapper.mapModel(description);		
 		BloodscribeEntityManager.getEntityManager().persist(entity);
 	}
 

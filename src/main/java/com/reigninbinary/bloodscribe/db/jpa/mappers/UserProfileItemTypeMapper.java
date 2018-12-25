@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.UserProfileItemType;
 import com.reigninbinary.bloodscribe.db.jpa.entities.UserProfileItemTypeEntity;
 
 
-public class UserProfileItemTypeEntityMapper {
+public class UserProfileItemTypeMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

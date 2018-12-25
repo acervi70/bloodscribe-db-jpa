@@ -4,7 +4,7 @@ import org.modelmapper.AbstractConverter;
 import org.modelmapper.Converter;
 
 
-public class BloodscribeModelMapperConverters {
+public class ModelMapperConverters {
 
 	public static Converter<String, Boolean> visibleConverter = 
 			new AbstractConverter<String, Boolean>() {

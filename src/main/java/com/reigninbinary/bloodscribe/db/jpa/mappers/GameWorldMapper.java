@@ -6,12 +6,12 @@ import com.reigninbinary.bloodscribe.db.dto.GameWorld;
 import com.reigninbinary.bloodscribe.db.jpa.entities.GameWorldEntity;
 
 
-public class GameWorldEntityMapper {
+public class GameWorldMapper {
 
 	private static final ModelMapper modelMapper;
 	static {
 		modelMapper = new ModelMapper();
-		modelMapper.addConverter(BloodscribeModelMapperConverters.readonlyConverter);
+		modelMapper.addConverter(ModelMapperConverters.readonlyConverter);
 	}
 
 	public static GameWorld mapModel(GameWorldEntity entity) {

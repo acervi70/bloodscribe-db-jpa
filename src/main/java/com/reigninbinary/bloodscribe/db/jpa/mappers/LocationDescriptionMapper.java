@@ -6,12 +6,12 @@ import com.reigninbinary.bloodscribe.db.dto.LocationDescription;
 import com.reigninbinary.bloodscribe.db.jpa.entities.LocationDescriptionEntity;
 
 
-public class LocationDescriptionEntityMapper {
+public class LocationDescriptionMapper {
 
 	private static final ModelMapper modelMapper;
 	static {
 		modelMapper = new ModelMapper();
-		modelMapper.addConverter(BloodscribeModelMapperConverters.visibleConverter);
+		modelMapper.addConverter(ModelMapperConverters.visibleConverter);
 	}
 
 	public static LocationDescription mapModel(LocationDescriptionEntity entity) {

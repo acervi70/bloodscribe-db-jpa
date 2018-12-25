@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.LocationTimeline;
 import com.reigninbinary.bloodscribe.db.jpa.entities.LocationTimelineEntity;
 
 
-public class LocationTimelineEntityMapper {
+public class LocationTimelineMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

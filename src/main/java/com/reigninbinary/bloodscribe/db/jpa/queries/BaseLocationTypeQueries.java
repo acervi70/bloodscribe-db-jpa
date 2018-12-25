@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
 import com.reigninbinary.bloodscribe.db.jpa.entities.BaseLocationTypeEntity;
 
 
-public class BaseLocationTypeEntityQueries {
+public class BaseLocationTypeQueries {
 
 	private static final String BASE_QUERY = "SELECT u FROM BaseLocationTypeEntity u";
 	

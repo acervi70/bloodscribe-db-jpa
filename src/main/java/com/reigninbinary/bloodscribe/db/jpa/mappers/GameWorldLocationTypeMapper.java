@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.GameWorldLocationType;
 import com.reigninbinary.bloodscribe.db.jpa.entities.GameWorldLocationTypeEntity;
 
 
-public class GameWorldLocationTypeEntityMapper {
+public class GameWorldLocationTypeMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.UserGameWorld;
 import com.reigninbinary.bloodscribe.db.jpa.entities.UserGameWorldEntity;
 
 
-public class UserGameWorldEntityMapper {
+public class UserGameWorldMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

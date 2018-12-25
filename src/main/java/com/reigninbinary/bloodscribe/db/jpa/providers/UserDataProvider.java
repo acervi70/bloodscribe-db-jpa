@@ -9,14 +9,14 @@ import com.reigninbinary.bloodscribe.db.dto.UserProfileItem;
 import com.reigninbinary.bloodscribe.db.dto.UserProfileItemType;
 import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
 import com.reigninbinary.bloodscribe.db.jpa.EntityManagerOps;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.UserEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.UserIdentityTypeEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.UserProfileItemEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.UserProfileItemTypeEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.queries.UserEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.UserIdentityTypeEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.UserProfileItemEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.UserProfileItemTypeEntityQueries;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.UserMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.UserIdentityTypeMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.UserProfileItemMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.UserProfileItemTypeMapper;
+import com.reigninbinary.bloodscribe.db.jpa.queries.UserQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.UserIdentityTypeQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.UserProfileItemQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.UserProfileItemTypeQueries;
 import com.reigninbinary.bloodscribe.providers.UserProvider;
 
 
@@ -25,108 +25,108 @@ public class UserDataProvider implements UserProvider {
 	@Override
 	public User getUserById(int idUser) {
 		
-		return UserEntityMapper.mapModel(UserEntityQueries.findByUserId(idUser));
+		return UserMapper.mapModel(UserQueries.findByUserId(idUser));
 	}
 
 	@Override
 	public User getUserByIdentityId(String idIdentity) {
 		
-		return UserEntityMapper.mapModel(UserEntityQueries.findByIdentityId(idIdentity));
+		return UserMapper.mapModel(UserQueries.findByIdentityId(idIdentity));
 	}
 
 	@Override
 	public User getUserByEmailAddress(String emailAddress) {
 		
-		return UserEntityMapper.mapModel(UserEntityQueries.findByEmailAddress(emailAddress));
+		return UserMapper.mapModel(UserQueries.findByEmailAddress(emailAddress));
 	}
 
 	@Override
 	public List<UserProfileItem> getUserProfileItems(int idUser) {
 		
-		 return UserProfileItemEntityQueries.findByUserId(idUser)
+		 return UserProfileItemQueries.findByUserId(idUser)
 				 .stream()
-				 .map(entity -> UserProfileItemEntityMapper.mapModel(entity))
+				 .map(entity -> UserProfileItemMapper.mapModel(entity))
 				 .collect(Collectors.toList());
 	}
 
 	@Override
 	public List<User> getUsers() {
 		
-		 return UserEntityQueries.findAll()
+		 return UserQueries.findAll()
 				 .stream()
-				 .map(entity -> UserEntityMapper.mapModel(entity))
+				 .map(entity -> UserMapper.mapModel(entity))
 				 .collect(Collectors.toList());
 	}
 
 	@Override
 	public List<UserIdentityType> getUserIdentityTypes() {
 		
-		 return UserIdentityTypeEntityQueries.findAll()
+		 return UserIdentityTypeQueries.findAll()
 				 .stream()
-				 .map(entity -> UserIdentityTypeEntityMapper.mapModel(entity))
+				 .map(entity -> UserIdentityTypeMapper.mapModel(entity))
 				 .collect(Collectors.toList());
 	}
 
 	@Override
 	public List<UserProfileItemType> getUserProfileItemTypes() {
 
-		 return UserProfileItemTypeEntityQueries.findAll()
+		 return UserProfileItemTypeQueries.findAll()
 				 .stream()
-				 .map(entity -> UserProfileItemTypeEntityMapper.mapModel(entity))
+				 .map(entity -> UserProfileItemTypeMapper.mapModel(entity))
 				 .collect(Collectors.toList());
 	}
 
 	@Override
 	public void saveUser(User user) {
 		
-		EntityManagerOps.save(UserEntityMapper.mapModel(user));
+		EntityManagerOps.save(UserMapper.mapModel(user));
 	}
 
 	@Override
 	public void saveUserProfileItem(UserProfileItem profileItem) {
 
-		EntityManagerOps.save(UserProfileItemEntityMapper.mapModel(profileItem));
+		EntityManagerOps.save(UserProfileItemMapper.mapModel(profileItem));
 	}
 
 	@Override
 	public void saveUserProfileItemType(UserProfileItemType profileItemType) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist( UserProfileItemTypeEntityMapper.mapModel(profileItemType));
+			.persist( UserProfileItemTypeMapper.mapModel(profileItemType));
 	}
 
 	@Override
 	public void saveUserIdentityType(UserIdentityType identityType) {
 
 		BloodscribeEntityManager.getEntityManager()
-			.persist(UserIdentityTypeEntityMapper.mapModel(identityType));
+			.persist(UserIdentityTypeMapper.mapModel(identityType));
 	}
 
 	@Override
 	public void deleteUser(User user) {
 
 		BloodscribeEntityManager.getEntityManager()
-			.remove(UserEntityMapper.mapModel(user));
+			.remove(UserMapper.mapModel(user));
 	}
 
 	@Override
 	public void deleteUserProfileItem(UserProfileItem profileItem) {
 
 		BloodscribeEntityManager.getEntityManager()
-			.remove(UserProfileItemEntityMapper.mapModel(profileItem));
+			.remove(UserProfileItemMapper.mapModel(profileItem));
 	}
 
 	@Override
 	public void deleteUserProfileItemType(UserProfileItemType profileItemType) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.remove( UserProfileItemTypeEntityMapper.mapModel(profileItemType));
+			.remove( UserProfileItemTypeMapper.mapModel(profileItemType));
 	}
 
 	@Override
 	public void deleteUserIdentityType(UserIdentityType identityType) {
 
 		BloodscribeEntityManager.getEntityManager()
-			.remove(UserIdentityTypeEntityMapper.mapModel(identityType));
+			.remove(UserIdentityTypeMapper.mapModel(identityType));
 	}
 }

@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
 import com.reigninbinary.bloodscribe.db.jpa.entities.UserProfileItemEntity;
 
 
-public class UserProfileItemEntityQueries {
+public class UserProfileItemQueries {
 
 	private static final String BASE_QUERY = "SELECT u FROM UserProfileItemEntity";
 

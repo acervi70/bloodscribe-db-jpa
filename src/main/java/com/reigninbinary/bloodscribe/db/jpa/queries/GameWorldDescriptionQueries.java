@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
 import com.reigninbinary.bloodscribe.db.jpa.entities.GameWorldDescriptionEntity;
 
 
-public class GameWorldDescriptionEntityQueries {
+public class GameWorldDescriptionQueries {
 
 	private static final String BASE_QUERY = "SELECT u FROM GameWorldDescriptionEntity u";
 	

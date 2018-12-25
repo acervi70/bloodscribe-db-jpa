@@ -9,16 +9,16 @@ import com.reigninbinary.bloodscribe.db.dto.GameWorldLocationType;
 import com.reigninbinary.bloodscribe.db.dto.LocationDescription;
 import com.reigninbinary.bloodscribe.db.dto.LocationTimeline;
 import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.BaseLocationTypeEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldLocationEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldLocationTypeEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.LocationDescriptionEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.LocationTimelineEntityMapper;
-import com.reigninbinary.bloodscribe.db.jpa.queries.BaseLocationTypeEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldLocationEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldLocationTypeEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.LocationDescriptionEntityQueries;
-import com.reigninbinary.bloodscribe.db.jpa.queries.LocationTimelineEntityQueries;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.BaseLocationTypeMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldLocationMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldLocationTypeMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.LocationDescriptionMapper;
+import com.reigninbinary.bloodscribe.db.jpa.mappers.LocationTimelineMapper;
+import com.reigninbinary.bloodscribe.db.jpa.queries.BaseLocationTypeQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldLocationQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.GameWorldLocationTypeQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.LocationDescriptionQueries;
+import com.reigninbinary.bloodscribe.db.jpa.queries.LocationTimelineQueries;
 import com.reigninbinary.bloodscribe.providers.LocationProvider;
 
 
@@ -27,107 +27,107 @@ public class LocationDataProvider implements LocationProvider {
 	@Override
 	public BaseLocationType getBaseLocationTypeById(int idLocationType) {
 		
-		return BaseLocationTypeEntityMapper
-				.mapModel(BaseLocationTypeEntityQueries
+		return BaseLocationTypeMapper
+				.mapModel(BaseLocationTypeQueries
 						.findByLocationTypeId(idLocationType));
 	}
 
 	@Override
 	public List<BaseLocationType> getBaseLocationTypes() {
 		
-		return BaseLocationTypeEntityQueries
+		return BaseLocationTypeQueries
 				.findAll()
 				.stream()
-				.map(entity -> BaseLocationTypeEntityMapper.mapModel(entity))
+				.map(entity -> BaseLocationTypeMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public GameWorldLocationType getGameWorldLocationTypeById(int idGameWorld, int idLocationType) {
 
-		return GameWorldLocationTypeEntityMapper
-				.mapModel(GameWorldLocationTypeEntityQueries
+		return GameWorldLocationTypeMapper
+				.mapModel(GameWorldLocationTypeQueries
 						.findByLocationTypeId(idGameWorld, idLocationType));
 	}
 
 	@Override
 	public List<GameWorldLocationType> getLocationTypesByGameWorld(int idGameWorld) {
 
-		return GameWorldLocationTypeEntityQueries
+		return GameWorldLocationTypeQueries
 				.findByGameWorldId(idGameWorld)
 				.stream()
-				.map(entity -> GameWorldLocationTypeEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldLocationTypeMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public GameWorldLocation getLocationById(int idLocation) {
 		
-		return GameWorldLocationEntityMapper
-				.mapModel(GameWorldLocationEntityQueries.findByLocationId(idLocation));
+		return GameWorldLocationMapper
+				.mapModel(GameWorldLocationQueries.findByLocationId(idLocation));
 	}
 
 	@Override
 	public List<GameWorldLocation> getLocationsByParent(int idParentLocation) {
 		
-		return GameWorldLocationEntityQueries
+		return GameWorldLocationQueries
 				.findByParentId(idParentLocation)
 				.stream()
-				.map(entity -> GameWorldLocationEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldLocationMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<GameWorldLocation> getLocationsByGameWorld(int idGameWorld) {
 		
-		return GameWorldLocationEntityQueries
+		return GameWorldLocationQueries
 				.findByGameWorldId(idGameWorld)
 				.stream()
-				.map(entity -> GameWorldLocationEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldLocationMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<GameWorldLocation> getLocationsWithNoParent(int idGameWorld) {
 		
-		return GameWorldLocationEntityQueries
+		return GameWorldLocationQueries
 				.findLocationsWithNoParent(idGameWorld)
 				.stream()
-				.map(entity -> GameWorldLocationEntityMapper.mapModel(entity))
+				.map(entity -> GameWorldLocationMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public LocationDescription getLocationDescriptionById(int idDescription) {
 		
-		return LocationDescriptionEntityMapper
-				.mapModel(LocationDescriptionEntityQueries.findByDescriptionId(idDescription));
+		return LocationDescriptionMapper
+				.mapModel(LocationDescriptionQueries.findByDescriptionId(idDescription));
 	}
 
 	@Override
 	public List<LocationDescription> getLocationDescriptions(int idLocation) {
 		
-		return LocationDescriptionEntityQueries
+		return LocationDescriptionQueries
 				.findByLocationId(idLocation)
 				.stream()
-				.map(entity -> LocationDescriptionEntityMapper.mapModel(entity))
+				.map(entity -> LocationDescriptionMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public LocationTimeline getLocationTimelineById(int idTimeline) {
 		
-		return LocationTimelineEntityMapper
-				.mapModel(LocationTimelineEntityQueries.findByTimelineId(idTimeline));
+		return LocationTimelineMapper
+				.mapModel(LocationTimelineQueries.findByTimelineId(idTimeline));
 	}
 
 	@Override
 	public List<LocationTimeline> getLocationTimelines(int idLocation) {
 		
-		return LocationTimelineEntityQueries
+		return LocationTimelineQueries
 				.findByLocationId(idLocation)
 				.stream()
-				.map(entity -> LocationTimelineEntityMapper.mapModel(entity))
+				.map(entity -> LocationTimelineMapper.mapModel(entity))
 				.collect(Collectors.toList());
 	}
 
@@ -135,34 +135,34 @@ public class LocationDataProvider implements LocationProvider {
 	public void saveBaseLocationType(BaseLocationType type) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist(BaseLocationTypeEntityMapper.mapModel(type));
+			.persist(BaseLocationTypeMapper.mapModel(type));
 	}
 
 	@Override
 	public void saveGameWorldLocationType(GameWorldLocationType type) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist(GameWorldLocationTypeEntityMapper.mapModel(type));
+			.persist(GameWorldLocationTypeMapper.mapModel(type));
 	}
 
 	@Override
 	public void saveGameWorldLocation(GameWorldLocation location) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist(GameWorldLocationEntityMapper.mapModel(location));
+			.persist(GameWorldLocationMapper.mapModel(location));
 	}
 
 	@Override
 	public void saveLocationDescription(LocationDescription descripton) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist(LocationDescriptionEntityMapper.mapModel(descripton));
+			.persist(LocationDescriptionMapper.mapModel(descripton));
 	}
 
 	@Override
 	public void saveLocationTimeline(LocationTimeline timeline) {
 		
 		BloodscribeEntityManager.getEntityManager()
-			.persist(LocationTimelineEntityMapper.mapModel(timeline));
+			.persist(LocationTimelineMapper.mapModel(timeline));
 	}
 }

@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.BaseLocationType;
 import com.reigninbinary.bloodscribe.db.jpa.entities.BaseLocationTypeEntity;
 
 
-public class BaseLocationTypeEntityMapper {
+public class BaseLocationTypeMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

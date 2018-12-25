@@ -6,10 +6,10 @@ import com.reigninbinary.bloodscribe.db.dto.UserProfileItem;
 import com.reigninbinary.bloodscribe.db.jpa.entities.UserProfileItemEntity;
 
 
-public class UserProfileItemEntityMapper {
+public class UserProfileItemMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
-
+	
 	public static UserProfileItem mapModel(UserProfileItemEntity entity) {
 		
 		return modelMapper.map(entity, UserProfileItem.class);

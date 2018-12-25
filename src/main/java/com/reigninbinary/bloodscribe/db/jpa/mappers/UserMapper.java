@@ -6,7 +6,7 @@ import com.reigninbinary.bloodscribe.db.dto.User;
 import com.reigninbinary.bloodscribe.db.jpa.entities.UserEntity;
 
 
-public class UserEntityMapper {
+public class UserMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

@@ -3,15 +3,15 @@ package com.reigninbinary.bloodscribe.db.jpa.queries;
 import java.util.List;
 
 import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
-import com.reigninbinary.bloodscribe.db.jpa.entities.UserIdentityTypeEntity;
+import com.reigninbinary.bloodscribe.db.jpa.entities.UserProfileItemTypeEntity;
 
 
-public class UserIdentityTypeEntityQueries {
+public class UserProfileItemTypeQueries {
 
-	private static final String BASE_QUERY = "SELECT u FROM UserIdentityTypeEntity u";
+	private static final String BASE_QUERY = "SELECT u FROM UserProfileItemTypeEntity u";
 
 	@SuppressWarnings("unchecked")
-	public static List<UserIdentityTypeEntity> findAll() {
+	public static List<UserProfileItemTypeEntity> findAll() {
 				
 	    return BloodscribeEntityManager.getEntityManager()
 	    		.createQuery(BASE_QUERY)
