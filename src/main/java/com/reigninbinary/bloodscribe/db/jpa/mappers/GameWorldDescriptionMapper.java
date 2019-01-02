@@ -19,8 +19,8 @@ public class GameWorldDescriptionMapper {
 		return modelMapper.map(entity, GameWorldDescription.class);
 	}
 
-	public static GameWorldDescriptionEntity mapModel(GameWorldDescription description) {
+	public static GameWorldDescriptionEntity mapModel(GameWorldDescription model) {
 
-		return modelMapper.map(description, GameWorldDescriptionEntity.class);
+		return modelMapper.map(model, GameWorldDescriptionEntity.class);
 	}		
 }

@@ -15,8 +15,8 @@ public class BaseLocationTypeMapper {
 		return modelMapper.map(entity, BaseLocationType.class);
 	}
 
-	public static BaseLocationTypeEntity mapModel(BaseLocationType locationType) {
+	public static BaseLocationTypeEntity mapModel(BaseLocationType model) {
 		
-		return modelMapper.map(locationType, BaseLocationTypeEntity.class);
+		return modelMapper.map(model, BaseLocationTypeEntity.class);
 	}
 }

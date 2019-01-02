@@ -15,8 +15,8 @@ public class UserIdentityTypeMapper {
 		return modelMapper.map(entity, UserIdentityType.class);
 	}
 
-	public static UserIdentityTypeEntity mapModel(UserIdentityType identityType) {
+	public static UserIdentityTypeEntity mapModel(UserIdentityType model) {
 
-		return modelMapper.map(identityType, UserIdentityTypeEntity.class);
+		return modelMapper.map(model, UserIdentityTypeEntity.class);
 	}
 }

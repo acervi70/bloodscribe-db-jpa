@@ -15,8 +15,8 @@ public class UserProfileItemTypeMapper {
 		return modelMapper.map(entity, UserProfileItemType.class);
 	}
 
-	public static UserProfileItemTypeEntity mapModel(UserProfileItemType profileItemType) {
+	public static UserProfileItemTypeEntity mapModel(UserProfileItemType model) {
 
-		return modelMapper.map(profileItemType, UserProfileItemTypeEntity.class);
+		return modelMapper.map(model, UserProfileItemTypeEntity.class);
 	}		
 }

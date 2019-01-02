@@ -15,8 +15,8 @@ public class UserMapper {
 		return modelMapper.map(entity, User.class);
 	}
 
-	public static UserEntity mapModel(User user) {
+	public static UserEntity mapModel(User model) {
 		
-		return modelMapper.map(user, UserEntity.class);
+		return modelMapper.map(model, UserEntity.class);
 	}		
 }

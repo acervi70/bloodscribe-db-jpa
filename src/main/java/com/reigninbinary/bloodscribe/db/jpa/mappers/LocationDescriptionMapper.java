@@ -19,8 +19,8 @@ public class LocationDescriptionMapper {
 		return modelMapper.map(entity, LocationDescription.class);
 	}
 
-	public static LocationDescriptionEntity mapModel(LocationDescription descripton) {
+	public static LocationDescriptionEntity mapModel(LocationDescription model) {
 
-		return modelMapper.map(descripton, LocationDescriptionEntity.class);
+		return modelMapper.map(model, LocationDescriptionEntity.class);
 	}		
 }

@@ -15,8 +15,8 @@ public class LocationTimelineMapper {
 		return modelMapper.map(entity, LocationTimeline.class);
 	}
 
-	public static LocationTimelineEntity mapModel(LocationTimeline timeline) {
+	public static LocationTimelineEntity mapModel(LocationTimeline model) {
 
-		return modelMapper.map(timeline, LocationTimelineEntity.class);
+		return modelMapper.map(model, LocationTimelineEntity.class);
 	}		
 }

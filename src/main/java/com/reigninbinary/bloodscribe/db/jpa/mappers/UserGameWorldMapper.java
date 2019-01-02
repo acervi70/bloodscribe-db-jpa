@@ -14,4 +14,9 @@ public class UserGameWorldMapper {
 		
 		return modelMapper.map(entity, UserGameWorld.class);
 	}		
+
+	public static UserGameWorldEntity mapModel(UserGameWorld model) {
+		
+		return modelMapper.map(model, UserGameWorldEntity.class);
+	}		
 }

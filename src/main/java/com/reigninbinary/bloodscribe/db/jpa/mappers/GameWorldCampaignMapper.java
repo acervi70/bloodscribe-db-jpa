@@ -5,8 +5,7 @@ import org.modelmapper.ModelMapper;
 import com.reigninbinary.bloodscribe.db.dto.Campaign;
 import com.reigninbinary.bloodscribe.db.jpa.entities.CampaignEntity;
 
-
-public class CampaignMapper {
+public class GameWorldCampaignMapper {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
 

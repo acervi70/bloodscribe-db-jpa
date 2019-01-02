@@ -3,6 +3,7 @@ package com.reigninbinary.bloodscribe.db.jpa.providers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.reigninbinary.bloodscribe.BloodscribeException;
 import com.reigninbinary.bloodscribe.db.dto.GameWorld;
 import com.reigninbinary.bloodscribe.db.dto.GameWorldDescription;
 import com.reigninbinary.bloodscribe.db.jpa.BloodscribeEntityManager;
@@ -17,14 +18,14 @@ import com.reigninbinary.bloodscribe.providers.GameWorldProvider;
 public class GameWorldDataProvider implements GameWorldProvider {
 
 	@Override
-	public GameWorld getGameWorldById(int idGameWorld) {
+	public GameWorld getGameWorldById(int idGameWorld) throws BloodscribeException {
 		
 		return GameWorldMapper
 				.mapModel(GameWorldQueries.findByGameWorldId(idGameWorld));
 	}
 
 	@Override
-	public List<GameWorld> getGameWorldsByUser(int idUser) {
+	public List<GameWorld> getGameWorldsByUser(int idUser) throws BloodscribeException {
 		
 		return GameWorldQueries
 				.findByUserId(idUser)
@@ -34,14 +35,14 @@ public class GameWorldDataProvider implements GameWorldProvider {
 	}
 
 	@Override
-	public GameWorldDescription getGameWorldDescriptionById(int idDescription) {
+	public GameWorldDescription getGameWorldDescriptionById(int idDescription) throws BloodscribeException {
 		
 		return GameWorldDescriptionMapper
 				.mapModel(GameWorldDescriptionQueries.findByDescriptionId(idDescription));
 	}
 
 	@Override
-	public List<GameWorldDescription> getGameWorldDescriptions(int idGameWorld) {
+	public List<GameWorldDescription> getGameWorldDescriptions(int idGameWorld) throws BloodscribeException {
 		
 		return GameWorldDescriptionQueries
 				.findByGameWorldId(idGameWorld)
@@ -51,17 +52,16 @@ public class GameWorldDataProvider implements GameWorldProvider {
 	}
 
 	@Override
-	public void saveGameWorld(GameWorld gameWorld) {
+	public void saveGameWorld(GameWorld gameWorld) throws BloodscribeException {
 		
 		GameWorldEntity entity = GameWorldMapper.mapModel(gameWorld);		
 		BloodscribeEntityManager.getEntityManager().persist(entity);
 	}
 
 	@Override
-	public void saveGameWorldDescription(GameWorldDescription description) {
+	public void saveGameWorldDescription(GameWorldDescription description) throws BloodscribeException {
 
 		GameWorldDescriptionEntity entity = GameWorldDescriptionMapper.mapModel(description);		
 		BloodscribeEntityManager.getEntityManager().persist(entity);
 	}
-
 }

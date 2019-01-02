@@ -15,8 +15,8 @@ public class GameWorldLocationTypeMapper {
 		return modelMapper.map(entity, GameWorldLocationType.class);
 	}
 
-	public static GameWorldLocationTypeEntity mapModel(GameWorldLocationType type) {
+	public static GameWorldLocationTypeEntity mapModel(GameWorldLocationType model) {
 		
-		return modelMapper.map(type, GameWorldLocationTypeEntity.class);
+		return modelMapper.map(model, GameWorldLocationTypeEntity.class);
 	}		
 }
