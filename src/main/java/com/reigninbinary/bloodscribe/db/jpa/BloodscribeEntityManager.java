@@ -19,7 +19,10 @@ public class BloodscribeEntityManager {
 
 	private BloodscribeEntityManager() {
 		
-		emf = Persistence.createEntityManagerFactory(getPersistenceUnit());
+		String pu = getPersistenceUnit();
+		CoreLogging.logInfo(String.format("JPA Persistence Unit: %s", pu));
+		
+		emf = Persistence.createEntityManagerFactory(pu);
 	}
 	
 	private String getPersistenceUnit() {
@@ -27,9 +30,7 @@ public class BloodscribeEntityManager {
 		final String PERSISTENCE_UNIT 			= "PERSISTENCE_UNIT";
 		final String PERSISTENCE_UNIT_DEFAULT 	= "bloodscribe-jpa";
 
-		String pu = CoreConfig.getConfigParam(PERSISTENCE_UNIT, PERSISTENCE_UNIT_DEFAULT);
-		CoreLogging.logInfo("JPA Persistence Unit: " + pu);
-		return pu;
+		return CoreConfig.getConfigParam(PERSISTENCE_UNIT, PERSISTENCE_UNIT_DEFAULT);
 	}
 	
 	private static BloodscribeEntityManager getInstance() {

@@ -10,7 +10,6 @@ import com.reigninbinary.bloodscribe.db.dto.CampaignLog;
 import com.reigninbinary.bloodscribe.db.jpa.mappers.CampaignInformationMapper;
 import com.reigninbinary.bloodscribe.db.jpa.mappers.CampaignLogMapper;
 import com.reigninbinary.bloodscribe.db.jpa.mappers.CampaignMapper;
-import com.reigninbinary.bloodscribe.db.jpa.mappers.GameWorldMapper;
 import com.reigninbinary.bloodscribe.db.jpa.queries.CampaignInformationQueries;
 import com.reigninbinary.bloodscribe.db.jpa.queries.CampaignLogQueries;
 import com.reigninbinary.bloodscribe.db.jpa.queries.CampaignQueries;
