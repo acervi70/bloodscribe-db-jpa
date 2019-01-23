@@ -79,13 +79,13 @@ public class UserDataProvider implements UserProvider {
 	@Override
 	public void saveUser(User user) {
 		
-		EntityManagerOps.save(UserMapper.mapModel(user));
+		EntityManagerOps.update(UserMapper.mapModel(user));
 	}
 
 	@Override
 	public void saveUserProfileItem(UserProfileItem profileItem) {
 
-		EntityManagerOps.save(UserProfileItemMapper.mapModel(profileItem));
+		EntityManagerOps.update(UserProfileItemMapper.mapModel(profileItem));
 	}
 
 	@Override
